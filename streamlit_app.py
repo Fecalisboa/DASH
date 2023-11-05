@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
-from streamlit_option_menu import option_menu
 import io  # Adicione esta linha no início do seu script
 import pdfkit  # Certifique-se de importar pdfkit
 import random
