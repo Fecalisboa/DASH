@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from streamlit_option_menu import option_menu
-import io  # Adicione esta linha no início do seu script
+import io  
 import random
 
 
@@ -131,8 +131,13 @@ with st.sidebar:
             # Ações a serem tomadas após encontrar resultados
             st.session_state['resultados_pesquisa'] = resultados_pesquisa
             st.success("OAB encontrada!")
+            # Renderize os dados da OAB aqui ou use uma flag para indicar que os dados devem ser mostrados
+            st.session_state['mostrar_resultados'] = True
         else:
             st.error("OAB Não encontrada!")
+            # Se não encontrar a OAB, certifique-se de limpar os dados antigos
+            st.session_state['resultados_pesquisa'] = pd.DataFrame()
+            st.session_state['mostrar_resultados'] = False
 
 
     if selected == "IA Acordo Eficaz":
@@ -149,7 +154,7 @@ with st.sidebar:
                 except Exception as e:
                     st.error(f"Erro ao processar a planilha IA: {e}")
 
-if 'resultados_pesquisa' in st.session_state:
+if 'mostrar_resultados' in st.session_state and st.session_state['mostrar_resultados']:
     resultados_pesquisa = st.session_state['resultados_pesquisa']
 
     if not resultados_pesquisa.empty:
