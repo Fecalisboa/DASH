@@ -234,7 +234,7 @@ if 'resultados_pesquisa' in st.session_state:
                     media_valor_acao_por_sentenca, 
                     x='Sentenca', 
                     y='Valor da Ação Limpo',  # Aqui você usa a coluna correta
-                    title='Média de Valor da Ação por Sentença'
+                    title='Média do Valor da Petição Inicial'
                 )
                 fig_media_sentenca.update_traces(texttemplate='%{y:.2f}', textposition='outside')
                 st.plotly_chart(fig_media_sentenca, use_container_width=True)
@@ -248,7 +248,7 @@ if 'resultados_pesquisa' in st.session_state:
                     media_valor_acao_por_instituicao, 
                     x='Instituição', 
                     y='Valor da Ação Limpo',  # E aqui também
-                    title='Média de Valor de Ação por Instituição'
+                    title='Média de Valor de Sentença por Classificação de Réu'
                 )
                 fig_media_instituicao.update_traces(texttemplate='%{y:.2f}', textposition='outside')
                 st.plotly_chart(fig_media_instituicao, use_container_width=True)
@@ -266,7 +266,7 @@ if 'resultados_pesquisa' in st.session_state:
         x='Contagem', 
         y='Assunto do Processo', 
         orientation='h', 
-        title='Contagem por Assunto do Processo',
+        title='Contagem por Assunto do Processo (CNJ)',
         text='Contagem'  # Isso adiciona a contagem em cada barra
     )
     fig_assunto_processo.update_traces(texttemplate='%{text}', textposition='inside')  # Configura a posição do texto
